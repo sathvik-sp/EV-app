@@ -26,12 +26,11 @@ void main() async {
     desiredAccuracy: LocationAccuracy.best,
     forceAndroidLocationManager: true,
   );
-  if (currentPosition != null) {
-    final initialPosition =
-        LatLng(currentPosition.latitude, currentPosition.longitude);
 
-    runApp(MyApp(initialPosition: initialPosition));
-  }
+  final initialPosition =
+      LatLng(currentPosition.latitude, currentPosition.longitude);
+
+  runApp(MyApp(initialPosition: initialPosition));
 }
 
 class MyApp extends StatelessWidget {
