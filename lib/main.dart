@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
   double userLogitude = 0.0;
 
   late GoogleMapController mapController;
+  final TextEditingController _searchController = TextEditingController();
 
   void getlocation(double latitude, double longitude) {
     setState(() {
@@ -83,6 +84,35 @@ class _MyAppState extends State<MyApp> {
                 mapController = controller;
                 // Add additional markers or functionality if needed
               },
+            ),
+            Container(
+              // Add padding around the search bar
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
+              // Use a Material design search bar
+              child: TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Color.fromARGB(220, 213, 215, 226),
+                  hintText: 'Search...',
+                  // Add a clear button to the search bar
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.clear),
+                    onPressed: () => _searchController.clear(),
+                  ),
+                  // Add a search icon or button to the search bar
+                  prefixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {
+                      // Perform the search here
+                    },
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+              ),
             ),
             Positioned(
               bottom: 40.0,
